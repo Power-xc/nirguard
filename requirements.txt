@@ -1,0 +1,15 @@
+# NIRGuard Python 의존성
+# Python 3.11+
+
+# 핵심 알고리즘
+numpy>=1.26.0
+opencv-python>=4.9.0
+
+# API 서버
+fastapi>=0.110.0
+uvicorn[standard]>=0.29.0
+python-multipart>=0.0.9
+
+# 테스트
+pytest>=8.1.0
+pytest-cov>=5.0.0

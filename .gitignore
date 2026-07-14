@@ -1,0 +1,76 @@
+# NIRGuard repository hygiene
+
+# 환경 변수 / 비밀값
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# 가상환경
+.venv/
+venv/
+env/
+ENV/
+
+# 테스트/커버리지
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
+*.cover
+
+# 타입 체커
+.mypy_cache/
+.dmypy.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# 영상/이미지 데이터 (용량 큰 파일)
+*.mp4
+*.mov
+*.avi
+*.mkv
+demo/videos/
+tests/fixtures/videos/
+
+# 데모 DB (로컬 전용)
+matching/*.db
+matching/*.sqlite
+
+# Node.js (데모 UI)
+demo/node_modules/
+demo/.next/
+demo/.env.local
+
+# 내부 전용 문서 (커밋 금지)
+business/
+docs/LEGAL_EVIDENCE_PLAYBOOK.md
+docs/TAKEDOWN_WORKFLOW.md
+
+# Validation outputs
+experiments/results/**/*.json
+experiments/results/**/*.pdf
+experiments/results/**/*.png
+experiments/results/**/*.jpg
+experiments/results/**/*.mp4
