@@ -1,0 +1,21 @@
+[
+  {
+    "name": "clean_screen_export",
+    "jpeg_quality": 100,
+    "noise_sigma": 0,
+    "downscale": 1.0
+  },
+  {
+    "name": "camera_noise_light",
+    "jpeg_quality": 100,
+    "noise_sigma": 10,
+    "downscale": 1.0
+  },
+  {
+    "name": "compressed_downscaled",
+    "jpeg_quality": 80,
+    "noise_sigma": 10,
+    "downscale": 0.75
+  }
+]
+

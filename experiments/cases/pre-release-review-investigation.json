@@ -1,0 +1,7 @@
+{
+  "title": "Pre-release review investigation",
+  "asset_type": "image",
+  "reviewer_id": "user_003",
+  "notes": "Reviewer-specific watermark validation. Attach real captures to manifest runs before external review.",
+  "case_id": "pre-release-review-investigation"
+}

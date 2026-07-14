@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "NIRGuard Capture Metadata",
+  "type": "object",
+  "required": ["sample_id", "original_path", "suspect_path", "user_id", "content_type", "display", "camera", "capture"],
+  "properties": {
+    "sample_id": { "type": "string" },
+    "original_path": { "type": "string" },
+    "suspect_path": { "type": "string" },
+    "user_id": { "type": "string" },
+    "content_type": { "enum": ["image", "pdf_page", "video"] },
+    "display": {
+      "type": "object",
+      "required": ["model", "panel_type", "brightness_percent"],
+      "properties": {
+        "model": { "type": "string" },
+        "panel_type": { "type": "string" },
+        "resolution": { "type": "string" },
+        "brightness_percent": { "type": ["number", "null"] },
+        "color_mode": { "type": ["string", "null"] }
+      }
+    },
+    "camera": {
+      "type": "object",
+      "required": ["model", "mode"],
+      "properties": {
+        "model": { "type": "string" },
+        "mode": { "type": "string" },
+        "resolution": { "type": ["string", "null"] },
+        "codec": { "type": ["string", "null"] }
+      }
+    },
+    "capture": {
+      "type": "object",
+      "required": ["distance_cm", "angle_degrees"],
+      "properties": {
+        "distance_cm": { "type": ["number", "null"] },
+        "angle_degrees": { "type": ["number", "null"] },
+        "ambient_lux": { "type": ["number", "null"] },
+        "tripod": { "type": "boolean" },
+        "focus_locked": { "type": "boolean" },
+        "exposure_locked": { "type": "boolean" }
+      }
+    },
+    "postprocess": {
+      "type": "object",
+      "properties": {
+        "crop": { "type": "boolean" },
+        "resize": { "type": ["string", "null"] },
+        "compression": { "type": ["string", "null"] }
+      }
+    },
+    "notes": { "type": "string" }
+  }
+}
+

@@ -1,0 +1,57 @@
+{
+  "name": "baseline_batch",
+  "out_dir": "experiments/results",
+  "strength": 4,
+  "mode": "block",
+  "use_sync": false,
+  "candidate_count": 100,
+  "top_k": 3,
+  "save_images": false,
+  "policy": {
+    "max_hamming": 0.1,
+    "min_confidence": 60,
+    "min_confidence_gap": 8
+  },
+  "inputs": [
+    {
+      "path": "experiments/datasets/sample.png",
+      "user_id": "user_003",
+      "captures": [
+        {
+          "name": "iphone_15_pro_1m_center",
+          "path": "experiments/datasets/sample_recapture.png",
+          "metadata": {
+            "display_model": "TBD",
+            "panel_type": "TBD",
+            "camera_model": "TBD",
+            "distance_cm": 100,
+            "angle_degrees": 0,
+            "ambient_lux": null,
+            "screen_brightness_percent": null,
+            "notes": "Replace with a real recapture file before running."
+          }
+        }
+      ]
+    }
+  ],
+  "conditions": [
+    {
+      "name": "clean_export",
+      "jpeg_quality": 100,
+      "noise_sigma": 0,
+      "downscale": 1.0
+    },
+    {
+      "name": "camera_noise_light",
+      "jpeg_quality": 100,
+      "noise_sigma": 10,
+      "downscale": 1.0
+    },
+    {
+      "name": "compressed_downscaled",
+      "jpeg_quality": 80,
+      "noise_sigma": 10,
+      "downscale": 0.75
+    }
+  ]
+}
