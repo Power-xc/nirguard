@@ -22,14 +22,13 @@ NIRGuard는 통제된 리뷰 워크플로(사전 공개 미디어, 기밀 문서
 패턴을 복원해 등록된 패턴들과 대조합니다. 불확실하면 지목하지 않는(abstain)
 신뢰도 정책을 적용합니다.
 
-```
-User ID → SHA-256 → PRNG → 64×64 이진 패턴
-→ R채널 삽입 (±4 조정)
-→ PSNR로 가시 품질 영향 측정
-→ 용의 캡처 업로드
-→ 패턴 복원 (평균화 + Otsu 이진화)
-→ 해밍 거리 + confidence/abstain 정책
-→ 후보 귀속 리포트
+```mermaid
+%%{init: {"flowchart": {"subGraphTitleMargin": {"top": 8, "bottom": 8}, "rankSpacing": 34, "nodeSpacing": 24}, "themeVariables": {"fontSize": "13px"}}}%%
+flowchart TD
+    A["User ID → SHA-256<br/>→ PRNG<br/>64×64 이진 패턴"] --> B["R채널 삽입<br/>±4 조정"] --> C["PSNR 측정<br/>가시 품질 영향"] --> D["용의 캡처 업로드"] --> E["패턴 복원<br/>평균화 + Otsu 이진화"] --> F["해밍 거리<br/>confidence/abstain 정책"] --> G["후보 귀속 리포트"]
+
+    classDef entry fill:#2f81f7,stroke:#1f6feb,color:#fff
+    class D entry
 ```
 
 현재 방식은 가시광 공간영역 워터마킹입니다. 디스플레이의 근적외선 방출을 전제로

@@ -22,14 +22,13 @@ A user/session-specific pattern is embedded into the visual signal as a low-ampl
 red-channel adjustment, then recovered from a suspect capture and matched against
 registered patterns under an abstain-aware confidence policy.
 
-```
-User ID → SHA-256 → PRNG → 64×64 binary pattern
-→ embedded into the red channel (±4 adjustment)
-→ PSNR measured for visual impact
-→ suspect capture uploaded
-→ pattern recovered (averaging + Otsu binarization)
-→ Hamming distance + confidence/abstain policy
-→ candidate attribution report
+```mermaid
+%%{init: {"flowchart": {"subGraphTitleMargin": {"top": 8, "bottom": 8}, "rankSpacing": 34, "nodeSpacing": 24}, "themeVariables": {"fontSize": "13px"}}}%%
+flowchart TD
+    A["User ID → SHA-256<br/>→ PRNG<br/>64×64 binary pattern"] --> B["Red-channel embed<br/>±4 adjustment"] --> C["PSNR measured<br/>visual impact"] --> D["Suspect capture upload"] --> E["Pattern recovery<br/>averaging + Otsu binarization"] --> F["Hamming distance<br/>confidence/abstain policy"] --> G["Candidate attribution report"]
+
+    classDef entry fill:#2f81f7,stroke:#1f6feb,color:#fff
+    class D entry
 ```
 
 This is visible-light, spatial-domain watermarking. The project makes no physical
