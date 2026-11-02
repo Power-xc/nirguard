@@ -16,7 +16,7 @@ import logging
 import sys
 from contextlib import asynccontextmanager
 from pathlib import Path
-from typing import AsyncIterator
+from typing import AsyncIterator, Literal
 
 import cv2
 import numpy as np
@@ -114,7 +114,7 @@ async def _read_upload_image(file: UploadFile) -> np.ndarray:
     """업로드 파일을 검증(형식·크기)하고 BGR ndarray로 디코딩한다."""
     if file.content_type not in _ALLOWED_CONTENT_TYPES:
         raise HTTPException(400, f"지원하지 않는 파일 형식: {file.content_type}")
-    raw = await file.read()
+    raw = await file.read(_MAX_UPLOAD_BYTES + 1)  # 한도 초과분은 메모리에 올리지 않는다
     if len(raw) > _MAX_UPLOAD_BYTES:
         raise HTTPException(413, "파일 크기 초과 (최대 50MB)")
     return _bytes_to_image(raw)
@@ -561,7 +561,7 @@ async def embed(
     file: UploadFile = File(..., description="원본 이미지 (PNG / JPEG)"),
     user_id: str = Form(..., min_length=1, max_length=256),
     strength: int = Form(default=4, ge=1, le=10),
-    mode: str = Form(default="block"),
+    mode: Literal["block", "pixel"] = Form(default="block"),
 ) -> EmbedResponse:
     """
     이미지에 user_id 기반 워터마크를 삽입한다.
@@ -627,7 +627,7 @@ async def simulate(
 @app.post("/api/extract", response_model=ExtractResponse)
 async def extract(
     file: UploadFile = File(..., description="패턴을 추출할 이미지 (열화된 이미지)"),
-    mode: str = Form(default="block"),
+    mode: Literal["block", "pixel"] = Form(default="block"),
 ) -> ExtractResponse:
     """
     이미지에서 워터마크 패턴을 복원하고 후보를 식별한다.
