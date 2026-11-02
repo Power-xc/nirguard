@@ -31,7 +31,6 @@
   --green-strong: #9dd5b2;
   --amber: #d2a85b;
   --red: #d9786d;
-  --shadow: 0 18px 60px rgba(0, 0, 0, 0.28);
 }
 
 * {
@@ -67,10 +66,7 @@ button {
   display: grid;
   grid-template-columns: 264px minmax(0, 1fr);
   min-height: 100vh;
-  background:
-    linear-gradient(135deg, rgba(130, 181, 150, 0.08), transparent 38%),
-    linear-gradient(315deg, rgba(210, 168, 91, 0.08), transparent 42%),
-    var(--page);
+  background: var(--page);
 }
 
 .sidebar {
@@ -82,8 +78,7 @@ button {
   gap: 28px;
   padding: 24px 18px;
   border-right: 1px solid var(--line-soft);
-  background: rgba(16, 18, 15, 0.86);
-  backdrop-filter: blur(16px);
+  background: var(--page);
 }
 
 .brand-block {
@@ -273,9 +268,7 @@ button {
 .panel,
 .metric-tile {
   border: 1px solid var(--line-soft);
-  background: rgba(23, 26, 21, 0.88);
-  box-shadow: var(--shadow);
-  backdrop-filter: blur(14px);
+  background: var(--surface);
 }
 
 .case-strip {
@@ -300,15 +293,15 @@ button {
   border-radius: 8px;
   background: #11140f;
   color: var(--text);
-  outline: none;
   padding: 0 11px;
 }
 
 .case-strip input:focus,
 .case-strip select:focus,
 .command-input:focus-visible {
-  border-color: rgba(157, 213, 178, 0.65);
-  box-shadow: 0 0 0 3px rgba(130, 181, 150, 0.12);
+  border-color: var(--green-strong);
+  outline: 2px solid var(--green-strong);
+  outline-offset: 2px;
 }
 
 .record-path {
@@ -665,7 +658,6 @@ button {
   border-radius: 8px;
   background: var(--surface);
   padding: 24px;
-  box-shadow: var(--shadow);
 }
 
 .not-found-panel h1 {

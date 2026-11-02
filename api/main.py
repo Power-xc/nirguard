@@ -245,10 +245,7 @@ _API_PAGE_STYLE = """
 html, body { min-height: 100%; }
 body {
   margin: 0;
-  background:
-    linear-gradient(135deg, rgba(130, 181, 150, 0.08), transparent 38%),
-    linear-gradient(315deg, rgba(210, 168, 91, 0.08), transparent 42%),
-    var(--page);
+  background: var(--page);
   color: var(--text);
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -296,9 +293,7 @@ a { color: inherit; text-decoration: none; }
 .hero, .panel, .card {
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: rgba(23, 26, 21, 0.88);
-  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.28);
-  backdrop-filter: blur(14px);
+  background: var(--surface);
 }
 .hero { padding: 28px; margin-bottom: 14px; }
 .eyebrow {
