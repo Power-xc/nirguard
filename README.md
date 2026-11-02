@@ -22,14 +22,18 @@ NIRGuard는 통제된 리뷰 워크플로(사전 공개 미디어, 기밀 문서
 패턴을 복원해 등록된 패턴들과 대조합니다. 불확실하면 지목하지 않는(abstain)
 신뢰도 정책을 적용합니다.
 
-```mermaid
-%%{init: {"flowchart": {"subGraphTitleMargin": {"top": 8, "bottom": 8}, "rankSpacing": 34, "nodeSpacing": 24}, "themeVariables": {"fontSize": "13px"}}}%%
-flowchart TD
-    A["User ID → SHA-256<br/>→ PRNG<br/>64×64 이진 패턴"] --> B["R채널 삽입<br/>±4 조정"] --> C["PSNR 측정<br/>가시 품질 영향"] --> D["용의 캡처 업로드"] --> E["패턴 복원<br/>평균화 + Otsu 이진화"] --> F["해밍 거리<br/>confidence/abstain 정책"] --> G["후보 귀속 리포트"]
-
-    classDef entry fill:#2f81f7,stroke:#1f6feb,color:#fff
-    class D entry
-```
+<picture>
+  <source
+    media="(prefers-color-scheme: dark)"
+    srcset="
+      https://raw.githubusercontent.com/Power-xc/nirguard/main/docs/architecture-dark.svg
+    "
+  />
+  <img
+    src="https://raw.githubusercontent.com/Power-xc/nirguard/main/docs/architecture-light.svg"
+    alt="워터마크 삽입 후 PSNR을 재고, 유출된 용의 캡처에서 패턴을 복원해 해밍 거리로 판정하고 후보 귀속 리포트를 만드는 흐름"
+  />
+</picture>
 
 현재 방식은 가시광 공간영역 워터마킹입니다. 디스플레이의 근적외선 방출을 전제로
 하는 물리 주장은 하지 않으며, 패널이 유의미한 NIR 신호를 방출하는지는

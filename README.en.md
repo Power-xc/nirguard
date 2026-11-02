@@ -22,14 +22,18 @@ A user/session-specific pattern is embedded into the visual signal as a low-ampl
 red-channel adjustment, then recovered from a suspect capture and matched against
 registered patterns under an abstain-aware confidence policy.
 
-```mermaid
-%%{init: {"flowchart": {"subGraphTitleMargin": {"top": 8, "bottom": 8}, "rankSpacing": 34, "nodeSpacing": 24}, "themeVariables": {"fontSize": "13px"}}}%%
-flowchart TD
-    A["User ID → SHA-256<br/>→ PRNG<br/>64×64 binary pattern"] --> B["Red-channel embed<br/>±4 adjustment"] --> C["PSNR measured<br/>visual impact"] --> D["Suspect capture upload"] --> E["Pattern recovery<br/>averaging + Otsu binarization"] --> F["Hamming distance<br/>confidence/abstain policy"] --> G["Candidate attribution report"]
-
-    classDef entry fill:#2f81f7,stroke:#1f6feb,color:#fff
-    class D entry
-```
+<picture>
+  <source
+    media="(prefers-color-scheme: dark)"
+    srcset="
+      https://raw.githubusercontent.com/Power-xc/nirguard/main/docs/architecture-en-dark.svg
+    "
+  />
+  <img
+    src="https://raw.githubusercontent.com/Power-xc/nirguard/main/docs/architecture-en-light.svg"
+    alt="Flow from embedding a watermark and measuring PSNR to recovering the pattern from a suspect capture, matching by Hamming distance and producing a candidate attribution report"
+  />
+</picture>
 
 This is visible-light, spatial-domain watermarking. The project makes no physical
 near-infrared emission claims: whether a display panel emits any usable NIR signal at all
