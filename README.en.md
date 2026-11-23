@@ -167,4 +167,4 @@ any patent license — is granted. See LICENSE.
 
 ## Contact
 
-Licensing, pilot, and research collaboration inquiries: pkk062300@naver.com
+Licensing, pilot, and research collaboration inquiries: [LinkedIn message](https://www.linkedin.com/in/kangkeunpark/)

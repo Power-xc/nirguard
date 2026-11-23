@@ -164,4 +164,4 @@ Copyright (c) 2026 KangKeun Park. All rights reserved. 이 저장소는 연구 �
 
 ## 문의
 
-라이선싱 · 파일럿 · 연구 협업 문의: pkk062300@naver.com
+라이선싱 · 파일럿 · 연구 협업 문의: [LinkedIn 메시지](https://www.linkedin.com/in/kangkeunpark/)
